@@ -24,5 +24,5 @@ jobs:
           username: ${{ secrets.STAGING_FTP_USERNAME }}
           password: ${{ secrets.STAGING_FTP_PASSWORD }}
           local-dir: ./coffee-shop/charlies-coffee/
-          server-dir: ./htdocs/wp-content/themes/charlies-coffee/
+          server-dir: ./charliescoffeestaging.site.je/htdocs/wp-content/themes/charlies-coffee/
           dangerous-clean-slate: false
