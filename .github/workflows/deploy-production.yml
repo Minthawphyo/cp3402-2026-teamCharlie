@@ -1,0 +1,28 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "coffee-shop/charlies-coffee/**"
+  workflow_dispatch: {}
+
+jobs:
+  ftp-deploy:
+    name: FTP deploy theme to production
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy theme via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.PROD_FTP_SERVER }}
+          username: ${{ secrets.PROD_FTP_USERNAME }}
+          password: ${{ secrets.PROD_FTP_PASSWORD }}
+          local-dir: ./coffee-shop/charlies-coffee/
+          server-dir: ./htdocs/wp-content/themes/charlies-coffee/
+          dangerous-clean-slate: false
