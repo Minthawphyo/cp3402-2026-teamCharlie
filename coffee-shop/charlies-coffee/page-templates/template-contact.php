@@ -5,6 +5,30 @@
  * @package Charlies_Coffee
  */
 
+$contact_status = '';
+
+if ( isset( $_POST['charlies_contact_submit'] ) ) {
+	$nonce_ok = isset( $_POST['charlies_contact_nonce'] )
+		&& wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['charlies_contact_nonce'] ) ), 'charlies_contact_form' );
+
+	$name    = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
+	$email   = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
+	$topic   = isset( $_POST['topic'] ) ? sanitize_text_field( wp_unslash( $_POST['topic'] ) ) : 'General';
+	$message = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
+
+	if ( $nonce_ok && $name && is_email( $email ) && $message ) {
+		$sent = wp_mail(
+			get_option( 'admin_email' ),
+			sprintf( '[Charlie\'s Coffee] New enquiry: %s', $topic ),
+			"Name: {$name}\nEmail: {$email}\nTopic: {$topic}\n\nMessage:\n{$message}",
+			array( 'Reply-To: ' . $name . ' <' . $email . '>' )
+		);
+		$contact_status = $sent ? 'success' : 'error';
+	} else {
+		$contact_status = 'error';
+	}
+}
+
 get_header();
 ?>
 
@@ -32,7 +56,15 @@ get_header();
 				Bookings, wholesale, or just say hello — we read everything.
 			</p>
 
-			<form class="form-grid" method="post" action="#" onsubmit="alert('Thanks! We will get back to you soon.'); return false;">
+			<?php if ( 'success' === $contact_status ) : ?>
+				<p class="form-status form-status-success" role="status">Thanks — your message is sent. We'll get back to you soon.</p>
+			<?php elseif ( 'error' === $contact_status ) : ?>
+				<p class="form-status form-status-error" role="alert">Something went wrong sending that — please check the fields and try again, or call us directly.</p>
+			<?php endif; ?>
+
+			<form class="form-grid" method="post" action="">
+				<?php wp_nonce_field( 'charlies_contact_form', 'charlies_contact_nonce' ); ?>
+				<input type="hidden" name="charlies_contact_submit" value="1">
 				<div>
 					<label for="c-name">Name</label>
 					<input id="c-name" name="name" type="text" required placeholder="Your name">

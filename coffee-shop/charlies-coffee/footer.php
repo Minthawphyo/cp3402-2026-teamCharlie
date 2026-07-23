@@ -38,7 +38,7 @@
 
 	<div class="footer-bottom">
 		<div class="container">
-			<p>&copy; <?php echo esc_html( date( 'Y' ) ); ?> Charlie&rsquo;s Coffee. Brewed with care.</p>
+			<p>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Charlie&rsquo;s Coffee. Brewed with care.</p>
 		</div>
 	</div>
 </footer>

@@ -893,6 +893,20 @@ h1, h2, h3, h4, .font-serif {
 @media (min-width: 768px) {
   .contact-form { padding: 2.5rem; }
 }
+.form-status {
+  margin-top: 1.5rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+.form-status-success {
+  background: rgba(26, 54, 38, 0.08);
+  color: var(--forest);
+}
+.form-status-error {
+  background: rgba(204, 88, 3, 0.1);
+  color: var(--burnt-700);
+}
 .form-grid {
   display: grid;
   gap: 1.25rem;
