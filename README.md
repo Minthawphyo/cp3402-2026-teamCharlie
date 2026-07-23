@@ -36,13 +36,6 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 | **Content management** | WordPress admin — edit pages, menu items, photos |
 | **Hosting** | Local + staging + production |
 
-### Not in scope
-
-- WooCommerce / online cart
-- Stripe or other payments
-- Custom customer or admin dashboards
-- Order tracking, inventory, loyalty
-
 ---
 
 ## Tech stack
@@ -66,7 +59,7 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 | File | What it covers |
 |------|----------------|
-| [workflow.md](workflow.md) | Project workflow notes (to be updated for brochure scope) |
+| [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps, frontend TODOs |
 | [assessment-3-rubric.md](assessment-3-rubric.md) | Assessment 3 brief and marking rubric |
 
 More docs to add later: `theme.md`, `site.md`, `deployment.md`, `project.html`

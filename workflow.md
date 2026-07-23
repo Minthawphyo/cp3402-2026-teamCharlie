@@ -2,260 +2,168 @@
 
 Team Charlie · CP3402
 
-This file explains our project in simple words: what we are building, how a customer buys coffee online, and how our team will build and launch the site.
+This file explains our project in simple words: what we are building, how a visitor uses the site, and how our team will build and launch it.
 
 ---
 
 ## What are we building?
 
-A **coffee shop website** where customers can:
+A **coffee shop brochure website** (not an online shop).
 
-1. Look at the menu
-2. Add drinks/food to a cart
-3. Pay online with **Stripe**
-4. Pick up their order at the shop
+Visitors can:
 
-### Front of the website (what customers see)
+1. Discover the shop on the Home page
+2. Browse the **Menu**
+3. Read **About** the shop
+4. **Find Us / Contact** the shop
 
-- Home page
+There is **no** add to cart, checkout, online payment, or order confirmation.
+
+### Pages (what visitors see)
+
+- Home
 - Menu
-- Cart and checkout
-- Order confirmation page
+- About
+- Contact / Find Us
 
-### Back of the website (what the shop manages)
+### Main CTAs (calls to action)
 
-We only focus on two things:
-
-- **Orders** — what the customer bought
-- **Payments (transactions)** — whether they paid successfully with Stripe
-
-
-
-### What we are NOT building
-
-We will not build:
-
-- Loyalty points
-- Stock / inventory tracking
-- Staff timetables
-- A full shop POS system
-- Subscriptions or complex Stripe features
+| Page | Main button |
+|------|-------------|
+| Home | View Menu |
+| Menu | Find Us |
+| About | Contact Us |
+| Contact | Send message / Call us |
 
 ---
 
-
-
-## What information do we store?
-
-
-
-### Menu items
-
-Each drink or food item has:
-
-- Name
-- Price
-- Photo
-- Category (Coffee, Food, or Merch)
-
-
-
-### Orders
-
-An order is the customer’s purchase. It stores:
-
-- Who ordered
-- What they bought
-- Total price
-- Order status (waiting, paid, making, ready, or cancelled)
-
-
-
-### Payments (transactions)
-
-A payment record stores:
-
-- How much was paid
-- That Stripe was used
-- Whether payment worked or failed
-- Which order it belongs to
-
----
-
-
-
-## What happens when a customer buys something?
-
-Think of it like ordering coffee, but online.
+## Visitor journey (simple)
 
 ```mermaid
 flowchart TD
-  A[Customer looks at menu] --> B[Adds items to cart]
-  B --> C[Goes to checkout<br/>enters name, contact, pickup time]
-  C --> D[Website creates an Order<br/>status: waiting]
-  D --> E[Website creates a Payment record<br/>status: waiting]
-  E --> F[Customer pays with Stripe]
-
-  F --> H{Did payment work?}
-  H -->|Yes| I[Payment: success]
-  H -->|No| J[Payment: failed]
-  J --> K[Order cancelled]
-  K --> L[Show 'payment failed' page]
-
-  I --> M[Order marked as paid]
-  M --> N[Show confirmation page]
-  N --> O[Shop gets a notification]
-  O --> P[Staff starts making the order]
-  P --> Q[Order is ready]
-  Q --> R[Customer picks it up]
+  A[Visitor opens Home] --> B[Clicks View Menu]
+  B --> C[Browses drinks and food]
+  C --> D[Clicks Find Us / Contact]
+  D --> E[Sees address, hours, map]
+  E --> F{What do they want?}
+  F -->|Visit the shop| G[Come in person]
+  F -->|Ask a question| H[Send message or call]
 ```
 
+### Step-by-step
 
+1. Visitor lands on Home and understands it is a coffee shop.
+2. They click **View Menu** and check prices/items.
+3. They click **Find Us** or **Contact Us**.
+4. They visit the shop in person, or contact the shop.
 
-
-
-### Simple step-by-step
-
-1. Customer opens the menu and adds items to the cart.
-2. Customer goes to checkout and enters their details (name, phone or email, pickup time).
-3. The website creates an **order** and a **payment record** (both start as “waiting”).
-4. Customer pays with **Stripe** (card payment).
-5. **If payment works:** payment is marked success, order is marked paid, customer sees a confirmation, and the shop is notified.
-6. **If payment fails:** payment is marked failed, order is cancelled, customer sees an error message.
-7. Staff make the order, mark it ready, and the customer picks it up.
+No online order is created.
 
 ---
 
-
-
-## Order status (easy view)
-
-An order moves like this:
-
-**Waiting → Paid → Being made → Ready → Picked up**
-
-If payment fails, it becomes **Cancelled**.
-
-```mermaid
-stateDiagram-v2
-  [*] --> Waiting: Customer checks out
-  Waiting --> Paid: Stripe payment works
-  Waiting --> Cancelled: Stripe payment fails
-  Paid --> BeingMade: Staff start the order
-  BeingMade --> Ready: Drink/food is ready
-  Ready --> [*]: Customer picks up
-```
-
-
-
-
-
-## Payment status (easy view)
-
-A payment is only one of these:
-
-- **Waiting** — customer started checkout
-- **Success** — Stripe took the money
-- **Failed** — card payment did not work
-
-```mermaid
-stateDiagram-v2
-  [*] --> Waiting: Payment started
-  Waiting --> Success: Stripe paid
-  Waiting --> Failed: Stripe failed
-  Success --> [*]
-  Failed --> [*]
-```
-
-
-
----
-
-
-
-## Front end vs back end (one purchase)
+## Frontend vs WordPress content
 
 ```mermaid
 flowchart TB
-  subgraph CustomerSees[What the customer sees]
-    UI[Menu, Cart, Checkout pages]
+  subgraph Frontend[Frontend work]
+    UI[Look and layout<br/>Home, Menu, About, Contact]
   end
 
-  subgraph ShopManages[What the shop manages]
-    O[Order<br/>who bought what, total, status]
-    T[Payment<br/>amount, Stripe result, linked to order]
+  subgraph WordPress[WordPress admin]
+    C[Edit pages and text]
+    M[Update menu items and prices]
+    P[Upload photos]
+    F[Receive contact messages]
   end
 
-  UI -->|Customer clicks Pay| O
-  O -->|Send payment to Stripe| T
-  T -->|Update order after Stripe replies| O
+  UI -->|Theme shows the design| Visitor[Visitor on public site]
+  C --> UI
+  M --> UI
+  P --> UI
+  F -.->|TODO later| ContactForm[Contact form]
 ```
-
-
 
 In short:
 
-- The **customer** uses the website pages.
-- The **shop** sees orders and payment results in WordPress admin.
+- **Frontend** = how the site looks and how pages are laid out
+- **WordPress admin** = where teammates edit text, menu, and photos
+- Visitors never need an account
 
 ---
 
+## Team roles 
 
+| Role | Focus |
+|------|--------|
+| Frontend | Theme UI, CSS, responsive layout, CTAs |
+| Content / WP | Pages, menu text, images in admin |
+| DevOps | Local + staging + production, Git workflow |
+| Docs / PM | `theme.md`, `site.md`, `deployment.md`, project board |
+
+---
 
 ## How our team will build and publish the site
 
 ```mermaid
 flowchart LR
-  A[Build on your own computer] --> B[Save work on a GitHub branch]
-  B --> C[Ask teammates to review]
-  C --> D[Merge into main]
-  D --> E[Put on staging test site]
-  E --> F[Test a real Stripe test payment]
-  F --> G[Put on the live website]
+  A[Build theme locally] --> B[Save work on GitHub branch]
+  B --> C[Teammates review PR]
+  C --> D[Merge to main]
+  D --> E[Deploy to staging]
+  E --> F[Test pages and CTAs]
+  F --> G[Deploy to live site]
 ```
 
+### Build order
 
-
-
-
-### Build order (do these in order)
-
-1. Make the basic coffee shop pages (Home, Menu, Cart, Checkout, Contact)
-2. Add menu items (drinks/food) as products
-3. Make cart and checkout work
-4. Make sure orders are saved
-5. Connect Stripe in **test mode**
-6. Let staff view orders and change status in admin
-7. Send a notice when a new paid order arrives
-8. Test both success and failed payments
-9. Publish the site and write our docs (`theme.md`, `site.md`, `deployment.md`)
+1. Shared layout (header, footer, navigation, buttons)
+2. Home page (hero + main CTA: View Menu)
+3. Menu page (coffee / food sections + prices)
+4. About page
+5. Contact / Find Us page (hours, address, map placeholder, form UI)
+6. Make it mobile-friendly
+7. Connect theme to WordPress (menus, pages, images)
+8. Put content in WordPress admin
+9. Test on local → staging → live
+10. Write docs: `theme.md`, `site.md`, `deployment.md`, `project.html`
 
 ---
 
+## Frontend TODOs for later WordPress / backend wiring
 
 
-## Stripe setup (checklist)
+| Item | TODO |
+|------|------|
+| Navigation | Replace hard-coded nav with WordPress menu |
+| Home hero text / CTA | Make editable in page editor or Customizer |
+| Menu items and prices | Load from WordPress content (not only static HTML) |
+| Photos | Use WordPress Media Library images |
+| Hours and address | Make editable in admin |
+| Map | Replace placeholder with real map embed |
+| Contact form | Connect to form plugin or email handler |
 
-1. Make a Stripe account
-2. Install WooCommerce in WordPress
-3. Install the Stripe plugin for WooCommerce
-4. Add Stripe test keys (safe fake-money mode)
-5. Set up Stripe so WordPress knows when payment finished
-6. Test with Stripe’s test card: `4242 4242 4242 4242`
-7. Only switch to real (live) keys after testing works
 
 ---
-
-
 
 ## What shop staff can do
 
-In the WordPress admin, staff can:
+In WordPress admin, staff / teammates can:
 
-- See all orders (customer, items, total, time)
-- See if Stripe payment worked
-- Change order status (for example: Being made → Ready)
-- Run the shop day-to-day **without** editing website code
+- Edit Home, Menu, About, Contact pages
+- Update menu items, prices, and photos
+- Update opening hours and address
+- Check contact form messages (once form is connected)
+
+They do **not** need a separate shop dashboard.
 
 ---
 
+## Environments (Assessment requirement)
+
+| Environment | Purpose |
+|-------------|---------|
+| **Local** | Build and test on each computer |
+| **Staging** | Test before going live |
+| **Production** | Public live website |
+
+---
