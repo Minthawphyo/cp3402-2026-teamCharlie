@@ -66,8 +66,18 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 | File | What it covers |
 |------|----------------|
-| [workflow.md](workflow.md) | Project workflow notes (to be updated for brochure scope) |
+| [coffee-shop/](coffee-shop/) | Charlie's Coffee frontend (React brochure site) |
+| [coffee-shop/FRONTEND_TODOS.md](coffee-shop/FRONTEND_TODOS.md) | Optional later WordPress notes only |
+| [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps |
 | [assessment-3-rubric.md](assessment-3-rubric.md) | Assessment 3 brief and marking rubric |
+
+### Run the frontend preview
+
+```bash
+cd coffee-shop/frontend
+yarn install
+yarn start
+```
 
 More docs to add later: `theme.md`, `site.md`, `deployment.md`, `project.html`
 
