@@ -1,24 +1,31 @@
 # Charlie's Coffee
 
-Frontend brochure site for CP3402 Team Charlie.
+Custom WordPress theme for CP3402 Team Charlie.
 
-## Pages
+## Theme
 
-- Home
-- Menu
-- About
-- Contact / Find Us
-
-No cart, payments, or backend in this version.
-
-## Run locally
-
-```bash
-cd frontend
-yarn install
-yarn start
+```text
+charlies-coffee/
 ```
 
-Open http://localhost:3000
+PHP + HTML + CSS — Home, Menu, About, Contact / Find Us.
 
-See `FRONTEND_TODOS.md` for optional later WordPress notes.
+## Run with Local WP
+
+1. Install [Local](https://localwp.com/) and create a site
+2. Copy `charlies-coffee` into that site’s `app/public/wp-content/themes/`
+3. Appearance → Themes → activate **Charlie's Coffee**
+4. Create pages:
+
+| Page | Slug | Template |
+|------|------|----------|
+| Home | `home` | — (set as front page) |
+| Menu | `menu` | **Menu** |
+| About | `about` | **About** |
+| Contact | `contact` | **Contact** |
+
+5. Settings → Reading → static front page = **Home**
+6. Settings → Permalinks → **Post name**
+
+More detail: [`charlies-coffee/README.md`](charlies-coffee/README.md)
+

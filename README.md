@@ -54,11 +54,11 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 ## Environments (Assessment requirement)
 
-| Environment | Purpose |
-|-------------|---------|
-| **Local** | Build and test on each member’s computer |
-| **Staging** | Test before going live |
-| **Production** | Public live site |
+| Environment | Purpose | Who |
+|-------------|---------|-----|
+| **Local** | Build and test on each member’s computer | Everyone |
+| **Staging** | Test before going live | Staging teammates |
+| **Production** | Public live site | Staging / deploy teammates |
 
 ---
 
@@ -66,20 +66,15 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 | File | What it covers |
 |------|----------------|
-| [coffee-shop/](coffee-shop/) | Charlie's Coffee frontend (React brochure site) |
-| [coffee-shop/FRONTEND_TODOS.md](coffee-shop/FRONTEND_TODOS.md) | Optional later WordPress notes only |
+| [coffee-shop/charlies-coffee/](coffee-shop/charlies-coffee/) | **Custom WordPress theme** (PHP + HTML + CSS) |
+| [coffee-shop/README.md](coffee-shop/README.md) | How to install the theme in Local WP |
 | [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps |
 | [assessment-3-rubric.md](assessment-3-rubric.md) | Assessment 3 brief and marking rubric |
 
-### Run the frontend preview
+### Run locally
 
-```bash
-cd coffee-shop/frontend
-yarn install
-yarn start
-```
+1. Copy `coffee-shop/charlies-coffee` → your Local WP site’s `wp-content/themes/`
+2. Activate **Charlie's Coffee**
+3. Create Home / Menu / About / Contact and assign templates (see [coffee-shop/README.md](coffee-shop/README.md))
 
 More docs to add later: `theme.md`, `site.md`, `deployment.md`, `project.html`
-
----
-
