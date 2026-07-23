@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Env / secrets
+.env
+.env.*
+*.pem
+*credentials.json*
+*token.json*
+
+# Archives
+*.zip

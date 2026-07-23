@@ -47,11 +47,11 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 ## Environments (Assessment requirement)
 
-| Environment | Purpose |
-|-------------|---------|
-| **Local** | Build and test on each member’s computer |
-| **Staging** | Test before going live |
-| **Production** | Public live site |
+| Environment | Purpose | Who |
+|-------------|---------|-----|
+| **Local** | Build and test on each member’s computer | Everyone |
+| **Staging** | Test before going live | Staging teammates |
+| **Production** | Public live site | Staging / deploy teammates |
 
 ---
 
@@ -62,7 +62,10 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 | [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps, frontend TODOs |
 | [assessment-3-rubric.md](assessment-3-rubric.md) | Assessment 3 brief and marking rubric |
 
+### Run locally
+
+1. Copy `coffee-shop/charlies-coffee` → your Local WP site’s `wp-content/themes/`
+2. Activate **Charlie's Coffee**
+3. Create Home / Menu / About / Contact and assign templates (see [coffee-shop/README.md](coffee-shop/README.md))
+
 More docs to add later: `theme.md`, `site.md`, `deployment.md`, `project.html`
-
----
-
