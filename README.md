@@ -36,13 +36,6 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 | **Content management** | WordPress admin — edit pages, menu items, photos |
 | **Hosting** | Local + staging + production |
 
-### Not in scope
-
-- WooCommerce / online cart
-- Stripe or other payments
-- Custom customer or admin dashboards
-- Order tracking, inventory, loyalty
-
 ---
 
 ## Tech stack
@@ -66,9 +59,7 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 | File | What it covers |
 |------|----------------|
-| [coffee-shop/charlies-coffee/](coffee-shop/charlies-coffee/) | **Custom WordPress theme** (PHP + HTML + CSS) |
-| [coffee-shop/README.md](coffee-shop/README.md) | How to install the theme in Local WP |
-| [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps |
+| [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps, frontend TODOs |
 | [assessment-3-rubric.md](assessment-3-rubric.md) | Assessment 3 brief and marking rubric |
 
 ### Run locally
