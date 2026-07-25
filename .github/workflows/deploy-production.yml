@@ -24,7 +24,7 @@ jobs:
       - name: Lint theme PHP files
         run: |
           find coffee-shop/charlies-coffee -name "*.php" -print0 \
-            | xargs -0 -n1 -I{} php -l "{}"
+            | xargs -0 -I{} php -l "{}"
 
   ftp-deploy:
     name: FTP deploy theme to production
