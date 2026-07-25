@@ -126,10 +126,4 @@ Action reports success, but the files never reach the actual site.
 
 ---
 
-## Adding a new environment or developer
 
-1. Create a new InfinityFree hosting account/subdomain, install WordPress.
-2. Get its FTP credentials, add as new GitHub secrets.
-3. Copy one of the existing workflow files, update the secret names and
-   `server-dir` path.
-4. Run through the one-time WordPress setup above.
