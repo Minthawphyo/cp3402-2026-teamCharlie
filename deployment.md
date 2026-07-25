@@ -49,7 +49,7 @@ Two workflows live in [`.github/workflows/`](.github/workflows/):
   touches `coffee-shop/charlies-coffee/`, the theme folder)
 - **`deploy-production.yml`** — same, but triggers on push to `main`
 
-Each workflow runs two jobs, in order:
+Each workflow runs three jobs, in order:
 
 1. **`test`** — lints every `.php` file in the theme with `php -l` (syntax
    check). If any file fails to parse, the job fails and the deploy never
@@ -59,6 +59,14 @@ Each workflow runs two jobs, in order:
    to FTP-sync `coffee-shop/charlies-coffee/` to the matching site's
    `wp-content/themes/charlies-coffee/` folder — only changed files are
    uploaded, not a full re-upload every time.
+3. **`smoke-test`** (only runs if `ftp-deploy` passes) — `curl`s Home,
+   Menu, About, and Contact on the *actual live site* and fails the run
+   if any of them don't return HTTP 200. This exists because the FTP
+   action can report "success" while uploading to the wrong place
+   entirely (see the folder-structure gotcha below — that's exactly how
+   we found it the first time, the hard way). The smoke test catches
+   that class of failure automatically instead of relying on someone
+   noticing.
 
 This only keeps the **theme code** in sync. It does not install WordPress,
 create pages, set permalinks, activate the theme, or touch the database —
