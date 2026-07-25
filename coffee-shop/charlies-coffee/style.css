@@ -259,6 +259,9 @@ h1, h2, h3, h4, .font-serif {
   gap: 0.25rem;
   align-items: center;
 }
+.nav-desktop li {
+  display: contents;
+}
 .nav-desktop a {
   padding: 0.5rem 1rem;
   border-radius: 999px;
@@ -267,8 +270,8 @@ h1, h2, h3, h4, .font-serif {
   color: var(--ink-muted);
 }
 .nav-desktop a:hover,
-.nav-desktop a.current-menu-item,
-.nav-desktop a.is-active {
+.nav-desktop li.current-menu-item a,
+.nav-desktop li.current_page_item a {
   color: var(--forest);
   background: var(--cream-300);
 }
@@ -301,6 +304,9 @@ h1, h2, h3, h4, .font-serif {
 .mobile-panel.is-open {
   display: block;
 }
+.mobile-panel li {
+  display: block;
+}
 .mobile-panel a {
   display: block;
   padding: 0.75rem 1rem;
@@ -309,7 +315,8 @@ h1, h2, h3, h4, .font-serif {
   font-weight: 500;
 }
 .mobile-panel a:hover,
-.mobile-panel a.is-active {
+.mobile-panel li.current-menu-item a,
+.mobile-panel li.current_page_item a {
   background: var(--cream-300);
   color: var(--forest);
 }

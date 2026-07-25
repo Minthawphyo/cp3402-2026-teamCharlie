@@ -18,10 +18,16 @@
 		</a>
 
 		<nav class="nav-desktop" aria-label="Primary">
-			<a class="<?php echo charlies_coffee_is_page( 'home' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-			<a class="<?php echo charlies_coffee_is_page( 'menu' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( charlies_coffee_page_url( 'menu', '/menu/' ) ); ?>">Menu</a>
-			<a class="<?php echo charlies_coffee_is_page( 'about' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( charlies_coffee_page_url( 'about', '/about/' ) ); ?>">About</a>
-			<a class="<?php echo charlies_coffee_is_page( 'contact' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( charlies_coffee_page_url( 'contact', '/contact/' ) ); ?>">Find Us</a>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'primary',
+					'container'      => false,
+					'items_wrap'     => '%3$s',
+					'fallback_cb'    => 'charlies_coffee_nav_fallback',
+				)
+			);
+			?>
 		</nav>
 
 		<div class="header-actions">
@@ -35,10 +41,16 @@
 
 	<div class="mobile-panel" id="mobile-panel" hidden>
 		<nav aria-label="Mobile">
-			<a class="<?php echo charlies_coffee_is_page( 'home' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-			<a class="<?php echo charlies_coffee_is_page( 'menu' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( charlies_coffee_page_url( 'menu', '/menu/' ) ); ?>">Menu</a>
-			<a class="<?php echo charlies_coffee_is_page( 'about' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( charlies_coffee_page_url( 'about', '/about/' ) ); ?>">About</a>
-			<a class="<?php echo charlies_coffee_is_page( 'contact' ) ? 'is-active' : ''; ?>" href="<?php echo esc_url( charlies_coffee_page_url( 'contact', '/contact/' ) ); ?>">Find Us</a>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'primary',
+					'container'      => false,
+					'items_wrap'     => '%3$s',
+					'fallback_cb'    => 'charlies_coffee_nav_fallback',
+				)
+			);
+			?>
 			<div class="mobile-panel-foot">
 				<span class="hours-widget" data-hours-widget></span>
 				<a class="btn btn-primary" href="<?php echo esc_url( charlies_coffee_page_url( 'menu', '/menu/' ) ); ?>">View Menu</a>

@@ -21,7 +21,7 @@
 			<ul class="footer-list">
 				<li>42 Lantern Lane<br>Townsville QLD 4810</li>
 				<li>(07) 4772 0000</li>
-				<li>Mon–Fri · 6:30a – 5:00p<br>Sat–Sun · 7:30a – 3:00p</li>
+				<li>Every day · 9:00a – 8:00p</li>
 			</ul>
 		</div>
 

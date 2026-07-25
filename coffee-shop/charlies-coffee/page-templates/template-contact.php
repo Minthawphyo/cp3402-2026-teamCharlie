@@ -105,8 +105,7 @@ get_header();
 				<div class="info-row">
 					<div>
 						<strong>Hours</strong>
-						Mon–Fri · 6:30a – 5:00p<br>
-						Sat–Sun · 7:30a – 3:00p
+						Every day · 9:00a – 8:00p
 					</div>
 				</div>
 				<div class="info-row">

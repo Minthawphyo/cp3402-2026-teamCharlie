@@ -24,13 +24,13 @@
   }
 
   var SCHEDULE = {
-    0: { open: "07:30", close: "15:00" },
-    1: { open: "06:30", close: "17:00" },
-    2: { open: "06:30", close: "17:00" },
-    3: { open: "06:30", close: "17:00" },
-    4: { open: "06:30", close: "17:00" },
-    5: { open: "06:30", close: "17:00" },
-    6: { open: "07:30", close: "15:00" },
+    0: { open: "09:00", close: "20:00" },
+    1: { open: "09:00", close: "20:00" },
+    2: { open: "09:00", close: "20:00" },
+    3: { open: "09:00", close: "20:00" },
+    4: { open: "09:00", close: "20:00" },
+    5: { open: "09:00", close: "20:00" },
+    6: { open: "09:00", close: "20:00" },
   };
 
   function toMinutes(hhmm) {
