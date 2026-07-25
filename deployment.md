@@ -49,9 +49,13 @@ Two workflows live in [`.github/workflows/`](.github/workflows/):
   touches `coffee-shop/charlies-coffee/`, the theme folder)
 - **`deploy-production.yml`** — same, but triggers on push to `main`
 
-Each workflow:
-1. Checks out the repo.
-2. Uses [`SamKirkland/FTP-Deploy-Action`](https://github.com/SamKirkland/FTP-Deploy-Action)
+Each workflow runs two jobs, in order:
+
+1. **`test`** — lints every `.php` file in the theme with `php -l` (syntax
+   check). If any file fails to parse, the job fails and the deploy never
+   runs — broken PHP can't reach staging or production.
+2. **`ftp-deploy`** (only runs if `test` passes) — uses
+   [`SamKirkland/FTP-Deploy-Action`](https://github.com/SamKirkland/FTP-Deploy-Action)
    to FTP-sync `coffee-shop/charlies-coffee/` to the matching site's
    `wp-content/themes/charlies-coffee/` folder — only changed files are
    uploaded, not a full re-upload every time.
