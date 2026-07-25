@@ -1,5 +1,8 @@
 # CP3402 Team Charlie — Coffee Shop Website
 
+[![Deploy to Staging](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml/badge.svg)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml)
+[![Deploy to Production](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml/badge.svg)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml)
+
 WordPress group project for **Assessment 3** (CP3402 Content Management Systems).
 
 We are building a **coffee shop brochure website** with a custom theme. Visitors can view the menu, learn about the shop, and find contact/location details. Content is managed in the normal WordPress admin — no online shop or custom backend.
@@ -60,7 +63,7 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 | File | What it covers |
 |------|----------------|
 | [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps, frontend TODOs |
-| [assessment-3-rubric.md](assessment-3-rubric.md) | Assessment 3 brief and marking rubric |
+| [deployment.md](deployment.md) | CI/CD pipeline, branching model, environments, how to deploy |
 
 ### Run locally
 
@@ -68,4 +71,4 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 2. Activate **Charlie's Coffee**
 3. Create Home / Menu / About / Contact and assign templates (see [coffee-shop/README.md](coffee-shop/README.md))
 
-More docs to add later: `theme.md`, `site.md`, `deployment.md`, `project.html`
+More docs to add later: `theme.md`, `site.md`, `project.html`

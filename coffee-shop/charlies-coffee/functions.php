@@ -9,9 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CHARLIES_COFFEE_VERSION', '1.0.2' );
+define( 'CHARLIES_COFFEE_VERSION', '1.1.0' );
 
-require get_template_directory() . '/inc/menu-data.php';
+require get_template_directory() . '/inc/menu-cpt.php';
+require get_template_directory() . '/inc/menu-seed.php';
 
 function charlies_coffee_setup() {
 	add_theme_support( 'title-tag' );

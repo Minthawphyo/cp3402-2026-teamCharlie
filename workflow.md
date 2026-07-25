@@ -104,15 +104,9 @@ In short:
 
 ## How our team will build and publish the site
 
-```mermaid
-flowchart LR
-  A[Build theme locally] --> B[Save work on GitHub branch]
-  B --> C[Teammates review PR]
-  C --> D[Merge to main]
-  D --> E[Deploy to staging]
-  E --> F[Test pages and CTAs]
-  F --> G[Deploy to live site]
-```
+For the actual branching rules, CI/CD pipeline, and environment URLs, see
+[deployment.md](deployment.md) — that's the source of truth for how code
+gets from a branch to a live site. This section is just the build order.
 
 ### Build order
 
@@ -158,12 +152,9 @@ They do **not** need a separate shop dashboard.
 
 ---
 
-## Environments (Assessment requirement)
+## Environments
 
-| Environment | Purpose |
-|-------------|---------|
-| **Local** | Build and test on each computer |
-| **Staging** | Test before going live |
-| **Production** | Public live website |
+See [deployment.md](deployment.md) for environment URLs, branches, and how
+each one gets deployed to.
 
 ---
