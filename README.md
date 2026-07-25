@@ -65,6 +65,7 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 | [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps, frontend TODOs |
 | [deployment.md](deployment.md) | CI/CD pipeline, branching model, environments, how to deploy |
 | [project.html](project.html) | Local environment demonstrated (screenshots of a real local install) |
+| [docs/design-reference.md](docs/design-reference.md) | Sitemap, CTA placement, and current page screenshots |
 | [assessment-3-rubric.md](assessment-3-rubric.md) | Assessment 3 brief and marking rubric |
 
 ### Run locally
