@@ -54,13 +54,14 @@ jobs:
         run: |
           sleep 5
           fail=0
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
           for url in \
             "https://charliescoffeestaging.site.je/" \
             "https://charliescoffeestaging.site.je/menu/" \
             "https://charliescoffeestaging.site.je/about/" \
             "https://charliescoffeestaging.site.je/contact/" \
           ; do
-            code=$(curl -s -o /dev/null -w "%{http_code}" --retry 3 --retry-delay 5 --retry-connrefused "$url")
+            code=$(curl -s -o /dev/null -w "%{http_code}" -A "$UA" -L --max-time 20 --retry 3 --retry-delay 5 --retry-all-errors "$url" || echo "000")
             echo "$url -> $code"
             if [ "$code" != "200" ]; then
               echo "::error::$url returned $code, expected 200"
