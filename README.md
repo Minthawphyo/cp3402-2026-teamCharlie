@@ -31,6 +31,19 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 ---
 
+## Features
+
+- Custom WordPress theme
+- Responsive coffee shop brochure website
+- Home page with hero section
+- Menu page showcasing coffee and food items
+- About page introducing Charlie's Coffee
+- Find Us page with contact and location information
+- Easy content management through WordPress Admin
+- Staging and production deployment with CI/CD
+
+---
+
 ## What we are building
 
 | Area | Details |
