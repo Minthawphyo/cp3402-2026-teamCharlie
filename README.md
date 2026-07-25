@@ -64,17 +64,11 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 |------|----------------|
 | [workflow.md](workflow.md) | Brochure-site visitor flow, team build steps, frontend TODOs |
 | [deployment.md](deployment.md) | CI/CD pipeline, branching model, environments, how to deploy |
-| [project.html](project.html) | Local environment demonstrated (screenshots of a real local install) |
-| [docs/design-reference.md](docs/design-reference.md) | Sitemap, CTA placement, and current page screenshots |
-| [assessment-3-rubric.md](assessment-3-rubric.md) | Assessment 3 brief and marking rubric |
 
 ### Run locally
 
 1. Copy `coffee-shop/charlies-coffee` → your Local WP site’s `wp-content/themes/`
 2. Activate **Charlie's Coffee**
 3. Create Home / Menu / About / Contact and assign templates (see [coffee-shop/README.md](coffee-shop/README.md))
-
-See [project.html](project.html) for a worked example, including a note on
-running fully locally with SQLite (no MySQL install needed).
 
 More docs to add later: `theme.md`, `site.md`, `project.html`
