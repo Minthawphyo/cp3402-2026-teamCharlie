@@ -1,7 +1,7 @@
 # Charlie's Coffee — WordPress Theme
 
 Custom brochure theme for CP3402 (PHP + HTML + CSS).  
-Same look as the React mock: cream, forest green, burnt orange.
+Cream · forest green · burnt orange.
 
 ## Pages
 
@@ -12,25 +12,34 @@ Same look as the React mock: cream, forest green, burnt orange.
 | **About** page template | About |
 | **Contact** page template | Find Us / Contact |
 
-## Install (Local WP / any WordPress)
+## Install (Local WP)
 
-1. Copy the `charlies-coffee` folder into `wp-content/themes/`
-2. Appearance → Themes → activate **Charlie's Coffee**
-3. Settings → Reading → set a static front page (create a page called Home, or leave blog and still use front-page if “Your homepage displays” is set to a static page)
-4. Create pages: **Menu**, **About**, **Contact**
-5. Edit each page → Template → choose **Menu** / **About** / **Contact**
-6. Set permalinks to Post name (Settings → Permalinks)
+1. Copy `charlies-coffee` into `wp-content/themes/`
+2. Activate **Charlie's Coffee**
+3. Create pages Home / Menu / About / Contact and assign templates
+4. Settings → Reading → front page = Home  
+5. Settings → Permalinks → Post name
 
-## Design
+On activate, sample menu items are seeded automatically (once).
 
-- Colours: `#F9F6F0` cream · `#1A3626` forest · `#CC5803` burnt  
-- Fonts: Fraunces (headings) + DM Sans (body)  
-- Prices: SGD (`S$`)  
-- No cart / WooCommerce
+## Edit menu in WP Admin (not in code)
 
-## Edit menu items
+| Admin screen | What |
+|--------------|------|
+| **Menu Items** | Name (title), description (editor), **Price (SGD)**, Featured on Home |
+| **Menu Items → Menu Categories** | Category name, tagline, image URL, sort order |
 
-Edit `inc/menu-data.php` — or later move this into WordPress content / custom fields.
+Menu page + Home featured drinks pull from these posts — no hardcoded prices.
+
+### Add a drink
+1. Menu Items → Add New  
+2. Title = name, editor = short description  
+3. Sidebar: Price + optional Featured  
+4. Assign a **Menu Category**  
+5. Publish  
+
+### Change a price
+Menu Items → edit item → change Price → Update.
 
 ## Files
 
@@ -38,12 +47,10 @@ Edit `inc/menu-data.php` — or later move this into WordPress content / custom 
 charlies-coffee/
   style.css
   functions.php
-  header.php
-  footer.php
-  front-page.php
-  index.php
+  header.php / footer.php / front-page.php / index.php
   assets/js/main.js
-  inc/menu-data.php
+  inc/menu-cpt.php      ← CPT + taxonomy + queries
+  inc/menu-seed.php     ← one-time sample data
   page-templates/
     template-menu.php
     template-about.php

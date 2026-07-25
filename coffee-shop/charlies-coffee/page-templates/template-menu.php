@@ -26,6 +26,13 @@ $about_url   = charlies_coffee_page_url( 'about', '/about/' );
 	</div>
 </section>
 
+<?php if ( empty( $categories ) ) : ?>
+	<div class="container" style="padding:3rem 0 6rem;">
+		<p class="lead">
+			<?php esc_html_e( 'No menu items yet. Add them in WP Admin → Menu Items (and assign a Menu Category).', 'charlies-coffee' ); ?>
+		</p>
+	</div>
+<?php else : ?>
 <nav class="menu-tabs" aria-label="Menu categories">
 	<div class="container menu-tabs-inner">
 		<?php foreach ( $categories as $i => $c ) : ?>
@@ -41,13 +48,15 @@ $about_url   = charlies_coffee_page_url( 'about', '/about/' );
 		<section class="menu-section" id="<?php echo esc_attr( $cat['id'] ); ?>">
 			<div class="menu-spread <?php echo $idx % 2 === 1 ? 'is-flip' : ''; ?>">
 				<div class="menu-media">
-					<img
-						src="<?php echo esc_url( $cat['image'] ); ?>"
-						alt="<?php echo esc_attr( $cat['title'] . " at Charlie's Coffee" ); ?>"
-						loading="lazy"
-						width="640"
-						height="800"
-					>
+					<?php if ( ! empty( $cat['image'] ) ) : ?>
+						<img
+							src="<?php echo esc_url( $cat['image'] ); ?>"
+							alt="<?php echo esc_attr( $cat['title'] . " at Charlie's Coffee" ); ?>"
+							loading="lazy"
+							width="640"
+							height="800"
+						>
+					<?php endif; ?>
 					<div class="menu-media-label">
 						<p style="margin:0;font-size:0.625rem;letter-spacing:0.28em;text-transform:uppercase;opacity:.8;">Category</p>
 						<p class="font-serif" style="margin:0;font-size:1.875rem;"><?php echo esc_html( $cat['title'] ); ?></p>
@@ -55,16 +64,18 @@ $about_url   = charlies_coffee_page_url( 'about', '/about/' );
 				</div>
 
 				<div class="menu-list">
-					<p class="eyebrow"><?php echo esc_html( str_pad( (string) ( $idx + 1 ), 2, '0', STR_PAD_LEFT ) ); ?> · <?php echo esc_html( $cat['tagline'] ); ?></p>
+					<p class="eyebrow"><?php echo esc_html( str_pad( (string) ( $idx + 1 ), 2, '0', STR_PAD_LEFT ) ); ?><?php echo $cat['tagline'] ? ' · ' . esc_html( $cat['tagline'] ) : ''; ?></p>
 					<h2><?php echo esc_html( $cat['title'] ); ?></h2>
 					<ul class="menu-items">
 						<?php foreach ( $cat['items'] as $item ) : ?>
 							<li>
 								<div class="menu-row">
 									<span class="menu-name"><?php echo esc_html( $item['name'] ); ?></span>
-									<span class="menu-price">S$<?php echo esc_html( $item['price'] ); ?></span>
+									<span class="menu-price"><?php echo $item['price'] !== '' ? 'S$' . esc_html( $item['price'] ) : ''; ?></span>
 								</div>
-								<p class="menu-desc"><?php echo esc_html( $item['desc'] ); ?></p>
+								<?php if ( $item['desc'] ) : ?>
+									<p class="menu-desc"><?php echo esc_html( $item['desc'] ); ?></p>
+								<?php endif; ?>
 							</li>
 						<?php endforeach; ?>
 					</ul>
@@ -73,6 +84,7 @@ $about_url   = charlies_coffee_page_url( 'about', '/about/' );
 		</section>
 	<?php endforeach; ?>
 </div>
+<?php endif; ?>
 
 <section>
 	<div class="container" style="padding-bottom:6rem;">

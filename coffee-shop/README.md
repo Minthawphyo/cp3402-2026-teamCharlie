@@ -29,3 +29,13 @@ PHP + HTML + CSS — Home, Menu, About, Contact / Find Us.
 
 More detail: [`charlies-coffee/README.md`](charlies-coffee/README.md)
 
+## Edit menu (WP Admin)
+
+Menu prices are **not** hardcoded. Teammates edit in WordPress:
+
+- **Menu Items** — name, description, price (SGD), featured
+- **Menu Categories** — Espresso, Brewed, etc.
+
+The Menu page template loads from that CPT.
+
+

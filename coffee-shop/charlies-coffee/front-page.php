@@ -10,30 +10,7 @@ get_header();
 $menu_url    = charlies_coffee_page_url( 'menu', '/menu/' );
 $contact_url = charlies_coffee_page_url( 'contact', '/contact/' );
 $categories  = charlies_coffee_get_menu_categories();
-
-$featured = array(
-	array(
-		'tag'   => 'Signature',
-		'name'  => 'The Lantern',
-		'desc'  => 'Espresso, oat milk, burnt honey and a whisper of sea salt.',
-		'price' => '6.80',
-		'img'   => 'https://images.pexels.com/photos/16541078/pexels-photo-16541078.jpeg',
-	),
-	array(
-		'tag'   => 'Brewed',
-		'name'  => 'V60 Pour Over',
-		'desc'  => 'Rotating single origin, brewed slow, made just for you.',
-		'price' => '6.50',
-		'img'   => 'https://images.pexels.com/photos/18604200/pexels-photo-18604200.jpeg',
-	),
-	array(
-		'tag'   => 'Cold',
-		'name'  => 'Nitro Cold Brew',
-		'desc'  => '24-hour steep, poured on tap. Silky cascade, no sugar.',
-		'price' => '7.20',
-		'img'   => 'https://images.pexels.com/photos/4869290/pexels-photo-4869290.jpeg',
-	),
-);
+$featured    = charlies_coffee_get_featured_items( 3 );
 ?>
 
 <section class="grain-bg">
@@ -116,21 +93,27 @@ $featured = array(
 			<a class="link-arrow" href="<?php echo esc_url( $menu_url ); ?>">See the full menu →</a>
 		</div>
 		<div class="cards-3">
-			<?php foreach ( $featured as $f ) : ?>
-				<article class="card">
-					<div class="card-img">
-						<img src="<?php echo esc_url( $f['img'] ); ?>" alt="<?php echo esc_attr( $f['name'] ); ?>" loading="lazy" width="600" height="450">
-					</div>
-					<div class="card-body">
-						<div class="card-meta">
-							<span><?php echo esc_html( $f['tag'] ); ?></span>
-							<span class="price">S$<?php echo esc_html( $f['price'] ); ?></span>
+			<?php if ( empty( $featured ) ) : ?>
+				<p class="lead"><?php esc_html_e( 'Mark menu items as Featured in WP Admin to show them here.', 'charlies-coffee' ); ?></p>
+			<?php else : ?>
+				<?php foreach ( $featured as $f ) : ?>
+					<article class="card">
+						<?php if ( ! empty( $f['img'] ) ) : ?>
+							<div class="card-img">
+								<img src="<?php echo esc_url( $f['img'] ); ?>" alt="<?php echo esc_attr( $f['name'] ); ?>" loading="lazy" width="600" height="450">
+							</div>
+						<?php endif; ?>
+						<div class="card-body">
+							<div class="card-meta">
+								<span><?php echo esc_html( $f['tag'] ); ?></span>
+								<span class="price">S$<?php echo esc_html( $f['price'] ); ?></span>
+							</div>
+							<h3><?php echo esc_html( $f['name'] ); ?></h3>
+							<p><?php echo esc_html( $f['desc'] ); ?></p>
 						</div>
-						<h3><?php echo esc_html( $f['name'] ); ?></h3>
-						<p><?php echo esc_html( $f['desc'] ); ?></p>
-					</div>
-				</article>
-			<?php endforeach; ?>
+					</article>
+				<?php endforeach; ?>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>
