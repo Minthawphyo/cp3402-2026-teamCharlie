@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CHARLIES_COFFEE_VERSION', '1.3.1' );
+define( 'CHARLIES_COFFEE_VERSION', '1.4.0' );
 
 require get_template_directory() . '/inc/menu-cpt.php';
 require get_template_directory() . '/inc/menu-seed.php';

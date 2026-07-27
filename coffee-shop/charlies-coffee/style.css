@@ -3,7 +3,7 @@ Theme Name: Charlie's Coffee
 Theme URI: https://github.com/Minthawphyo/cp3402-2026-teamCharlie
 Author: CP3402 Team Charlie
 Description: Brochure WordPress theme for Charlie's Coffee. Menu items use a custom post type editable in WP Admin.
-Version: 1.3.1
+Version: 1.4.0
 Text Domain: charlies-coffee
 Requires at least: 6.0
 Requires PHP: 7.4
@@ -939,15 +939,10 @@ h1, h2, h3, h4, .font-serif {
   border-radius: 1.5rem;
   border: 1px solid var(--cream-400);
   background: var(--cream);
-  padding: 2rem;
+  overflow: hidden;
 }
-.map-card {
-  border-style: dashed;
-  border-color: rgba(26, 54, 38, 0.3);
+.map-card iframe {
   min-height: 16rem;
-  display: grid;
-  place-items: center;
-  text-align: center;
 }
 .info-row {
   display: flex;

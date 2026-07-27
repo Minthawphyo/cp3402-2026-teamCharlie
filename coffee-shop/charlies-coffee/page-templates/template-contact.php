@@ -123,12 +123,24 @@ get_header();
 			</div>
 
 			<div class="map-card">
-				<div>
-					<p class="font-serif" style="margin:0;font-size:1.5rem;color:var(--forest);">Find us here</p>
-					<p style="margin:.5rem 0 0;color:var(--ink-muted);font-size:.875rem;">
-						42 Lantern Lane, Townsville QLD 4810
-					</p>
-				</div>
+				<?php
+				/*
+				 * No API key needed for this embed format (query-based
+				 * maps.google.com iframe) - fine for a student project without
+				 * Google Cloud billing set up. If that ever changes, swap for
+				 * the official Maps Embed API with a key.
+				 */
+				$map_query = urlencode( '42 Lantern Lane, Townsville QLD 4810' );
+				?>
+				<iframe
+					src="https://maps.google.com/maps?q=<?php echo esc_attr( $map_query ); ?>&output=embed"
+					width="100%"
+					height="320"
+					style="border:0;display:block;"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					title="<?php esc_attr_e( "Charlie's Coffee location map", 'charlies-coffee' ); ?>"
+				></iframe>
 			</div>
 		</aside>
 	</div>
