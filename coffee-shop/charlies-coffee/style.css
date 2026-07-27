@@ -3,7 +3,7 @@ Theme Name: Charlie's Coffee
 Theme URI: https://github.com/Minthawphyo/cp3402-2026-teamCharlie
 Author: CP3402 Team Charlie
 Description: Brochure WordPress theme for Charlie's Coffee. Menu items use a custom post type editable in WP Admin.
-Version: 1.1.0
+Version: 1.4.0
 Text Domain: charlies-coffee
 Requires at least: 6.0
 Requires PHP: 7.4
@@ -259,6 +259,9 @@ h1, h2, h3, h4, .font-serif {
   gap: 0.25rem;
   align-items: center;
 }
+.nav-desktop li {
+  display: contents;
+}
 .nav-desktop a {
   padding: 0.5rem 1rem;
   border-radius: 999px;
@@ -267,8 +270,8 @@ h1, h2, h3, h4, .font-serif {
   color: var(--ink-muted);
 }
 .nav-desktop a:hover,
-.nav-desktop a.current-menu-item,
-.nav-desktop a.is-active {
+.nav-desktop li.current-menu-item a,
+.nav-desktop li.current_page_item a {
   color: var(--forest);
   background: var(--cream-300);
 }
@@ -301,6 +304,9 @@ h1, h2, h3, h4, .font-serif {
 .mobile-panel.is-open {
   display: block;
 }
+.mobile-panel li {
+  display: block;
+}
 .mobile-panel a {
   display: block;
   padding: 0.75rem 1rem;
@@ -309,7 +315,8 @@ h1, h2, h3, h4, .font-serif {
   font-weight: 500;
 }
 .mobile-panel a:hover,
-.mobile-panel a.is-active {
+.mobile-panel li.current-menu-item a,
+.mobile-panel li.current_page_item a {
   background: var(--cream-300);
   color: var(--forest);
 }
@@ -932,15 +939,10 @@ h1, h2, h3, h4, .font-serif {
   border-radius: 1.5rem;
   border: 1px solid var(--cream-400);
   background: var(--cream);
-  padding: 2rem;
+  overflow: hidden;
 }
-.map-card {
-  border-style: dashed;
-  border-color: rgba(26, 54, 38, 0.3);
+.map-card iframe {
   min-height: 16rem;
-  display: grid;
-  place-items: center;
-  text-align: center;
 }
 .info-row {
   display: flex;

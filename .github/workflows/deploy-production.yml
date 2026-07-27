@@ -44,3 +44,28 @@ jobs:
           local-dir: ./coffee-shop/charlies-coffee/
           server-dir: ./charliescoffee.site.je/htdocs/wp-content/themes/charlies-coffee/
           dangerous-clean-slate: false
+
+  smoke-test:
+    name: Verify production site responds
+    needs: ftp-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check key pages return 200
+        run: |
+          sleep 5
+          fail=0
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+          for url in \
+            "https://charliescoffee.site.je/" \
+            "https://charliescoffee.site.je/menu/" \
+            "https://charliescoffee.site.je/about/" \
+            "https://charliescoffee.site.je/contact/" \
+          ; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -A "$UA" -L --max-time 20 --retry 3 --retry-delay 5 --retry-all-errors "$url" || echo "000")
+            echo "$url -> $code"
+            if [ "$code" != "200" ]; then
+              echo "::error::$url returned $code, expected 200"
+              fail=1
+            fi
+          done
+          exit $fail

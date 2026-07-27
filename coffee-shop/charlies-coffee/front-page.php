@@ -11,6 +11,7 @@ $menu_url    = charlies_coffee_page_url( 'menu', '/menu/' );
 $contact_url = charlies_coffee_page_url( 'contact', '/contact/' );
 $categories  = charlies_coffee_get_menu_categories();
 $featured    = charlies_coffee_get_featured_items( 3 );
+$hero        = charlies_coffee_get_hero_content();
 ?>
 
 <section class="grain-bg">
@@ -18,13 +19,11 @@ $featured    = charlies_coffee_get_featured_items( 3 );
 		<div>
 			<p class="eyebrow">Est. on the corner · Townsville</p>
 			<h1 class="display" style="margin-top:1.5rem;">
-				Coffee worth <br>
-				<span class="em">walking</span> for.
+				<?php // charlies_coffee_get_hero_content() already escapes/sanitizes this - don't double-escape. ?>
+				<?php echo $hero['heading']; ?>
 			</h1>
 			<p class="lead" style="margin-top:2rem;">
-				Charlie&rsquo;s is a small-batch cafe for students, locals and everyone
-				in between. Slow-brewed drinks, honest pastries, and a corner
-				booth with your name on it.
+				<?php echo esc_html( $hero['lead'] ); ?>
 			</p>
 			<div class="hero-actions">
 				<a class="btn btn-primary" href="<?php echo esc_url( $menu_url ); ?>">View the menu →</a>
