@@ -50,11 +50,18 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 ## Environments (Assessment requirement)
 
-| Environment | Purpose | Who |
-|-------------|---------|-----|
-| **Local** | Build and test on each member’s computer | Everyone |
-| **Staging** | Test before going live | Staging teammates |
-| **Production** | Public live site | Staging / deploy teammates |
+| Environment | Purpose | URL | Who |
+|-------------|---------|-----|-----|
+| **Local** | Build and test on each member's computer | each teammate's own WP install | Everyone |
+| **Staging** | Test before going live | [charliescoffeestaging.atwebpages.com](https://charliescoffeestaging.atwebpages.com) | Staging teammates |
+| **Production** | Public live site | [charliescoffee.app](https://charliescoffee.app) | Staging / deploy teammates |
+
+Hosted on AwardSpace (free tier); production is fronted by Cloudflare for
+HTTPS since AwardSpace's free plan doesn't include SSL for custom domains.
+See [deployment.md](deployment.md) for the full setup and the reasoning
+behind these choices, including alternatives that were tried and rejected
+(InfinityFree, other domain registrars, running production without
+Cloudflare).
 
 ---
 
