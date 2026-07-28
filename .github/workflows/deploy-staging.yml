@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.STAGING_FTP_USERNAME }}
           password: ${{ secrets.STAGING_FTP_PASSWORD }}
           local-dir: ./coffee-shop/charlies-coffee/
-          server-dir: ./charliescoffeestaging.site.je/htdocs/wp-content/themes/charlies-coffee/
+          server-dir: ./charliescoffeestaging.atwebpages.com/wp-content/themes/charlies-coffee/
           dangerous-clean-slate: false
 
   smoke-test:
@@ -56,10 +56,10 @@ jobs:
           fail=0
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
           for url in \
-            "https://charliescoffeestaging.site.je/" \
-            "https://charliescoffeestaging.site.je/menu/" \
-            "https://charliescoffeestaging.site.je/about/" \
-            "https://charliescoffeestaging.site.je/contact/" \
+            "http://charliescoffeestaging.atwebpages.com/" \
+            "http://charliescoffeestaging.atwebpages.com/menu/" \
+            "http://charliescoffeestaging.atwebpages.com/about/" \
+            "http://charliescoffeestaging.atwebpages.com/contact/" \
           ; do
             code=$(curl -s -o /dev/null -w "%{http_code}" -A "$UA" -L --max-time 20 --retry 3 --retry-delay 5 --retry-all-errors "$url" || echo "000")
             echo "$url -> $code"
