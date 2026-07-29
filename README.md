@@ -1,7 +1,7 @@
 # CP3402 Team Charlie — Coffee Shop Website
 
-[![Deploy to Staging](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml/badge.svg)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml)
-[![Deploy to Production](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml/badge.svg)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml)
+[![Deploy to Staging](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml/badge.svg?branch=staging)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml)
+[![Deploy to Production](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml/badge.svg?branch=main)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml)
 
 WordPress group project for **Assessment 3** (CP3402 Content Management Systems).
 
