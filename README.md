@@ -1,7 +1,7 @@
 # CP3402 Team Charlie — Coffee Shop Website
 
-[![Deploy to Staging](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml/badge.svg)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml)
-[![Deploy to Production](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml/badge.svg)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml)
+[![Deploy to Staging](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml/badge.svg?branch=staging)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-staging.yml)
+[![Deploy to Production](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml/badge.svg?branch=main)](https://github.com/Minthawphyo/cp3402-2026-teamCharlie/actions/workflows/deploy-production.yml)
 
 WordPress group project for **Assessment 3** (CP3402 Content Management Systems).
 
@@ -63,11 +63,18 @@ Create a simple, goal-driven coffee shop site that helps visitors:
 
 ## Environments (Assessment requirement)
 
-| Environment | Purpose | Who |
-|-------------|---------|-----|
-| **Local** | Build and test on each member’s computer | Everyone |
-| **Staging** | Test before going live | Staging teammates |
-| **Production** | Public live site | Staging / deploy teammates |
+| Environment | Purpose | URL | Who |
+|-------------|---------|-----|-----|
+| **Local** | Build and test on each member's computer | each teammate's own WP install | Everyone |
+| **Staging** | Test before going live | [charliescoffeestaging.atwebpages.com](https://charliescoffeestaging.atwebpages.com) | Staging teammates |
+| **Production** | Public live site | [charliescoffee.app](https://charliescoffee.app) | Staging / deploy teammates |
+
+Hosted on AwardSpace (free tier); production is fronted by Cloudflare for
+HTTPS since AwardSpace's free plan doesn't include SSL for custom domains.
+See [deployment.md](deployment.md) for the full setup and the reasoning
+behind these choices, including alternatives that were tried and rejected
+(InfinityFree, other domain registrars, running production without
+Cloudflare).
 
 ---
 

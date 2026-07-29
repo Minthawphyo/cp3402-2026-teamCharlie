@@ -104,9 +104,9 @@
   <p>
     This page documents a real, working local install of the Charlie's Coffee
     WordPress theme — the same theme code that runs on
-    <a href="https://charliescoffeestaging.site.je" target="_blank" rel="noopener">staging</a>
+    <a href="https://charliescoffeestaging.atwebpages.com" target="_blank" rel="noopener">staging</a>
     and
-    <a href="https://charliescoffee.site.je" target="_blank" rel="noopener">production</a>,
+    <a href="https://charliescoffee.app" target="_blank" rel="noopener">production</a>,
     running independently on a developer's own machine. Set up, verified,
     and screenshotted directly from a running instance — not mocked up.
   </p>
@@ -133,8 +133,9 @@
   <p>
     Any teammate can reproduce this — see <a href="deployment.md">deployment.md</a>
     for the one-time WordPress setup steps (activate theme, create pages,
-    assign templates, set permalinks). This doesn't require InfinityFree or
-    any hosting account at all — it's fully self-contained on one machine.
+    assign templates, set permalinks). This doesn't require AwardSpace,
+    Cloudflare, or any hosting account at all — it's fully self-contained
+    on one machine.
   </p>
 </section>
 
@@ -187,7 +188,7 @@
 <section>
   <h2>What this proves</h2>
   <ul>
-    <li>The theme is a genuine, portable WordPress theme — it installs and runs on a completely independent WordPress instance, not just the two specific InfinityFree accounts it happens to be deployed to.</li>
+    <li>The theme is a genuine, portable WordPress theme — it installs and runs on a completely independent WordPress instance, not just the specific AwardSpace accounts it happens to be deployed to.</li>
     <li>Local, staging, and production are all confirmed working with the same theme code, satisfying the Publishing criterion's requirement for all three environments.</li>
     <li>Content that used to be hardcoded (menu items, prices, navigation, hero copy) is now genuinely editable through wp-admin, verified end-to-end rather than assumed from reading the code.</li>
     <li>Every deploy to staging/production is automatically smoke-tested (CI curls the live site after each deploy) — the pipeline that keeps this local environment's code in sync with the live sites is itself verified working, not just "should work."</li>
