@@ -98,26 +98,26 @@ get_header();
 				<span class="hours-widget" data-hours-widget></span>
 				<div class="info-row">
 					<div>
-						<strong>42 Lantern Lane</strong>
-						Townsville QLD 4810
+						<strong>Address</strong>
+						<?php echo nl2br( esc_html( charlies_coffee_get_contact( 'address' ) ) ); ?>
 					</div>
 				</div>
 				<div class="info-row">
 					<div>
 						<strong>Hours</strong>
-						Every day · 9:00a – 8:00p
+						<?php echo esc_html( charlies_coffee_get_contact( 'hours' ) ); ?>
 					</div>
 				</div>
 				<div class="info-row">
 					<div>
 						<strong>Phone</strong>
-						(07) 4772 0000
+						<?php echo esc_html( charlies_coffee_get_contact( 'phone' ) ); ?>
 					</div>
 				</div>
 				<div class="info-row">
 					<div>
 						<strong>Email</strong>
-						hello@charliescoffee.com.au
+						<?php echo esc_html( charlies_coffee_get_contact( 'email' ) ); ?>
 					</div>
 				</div>
 			</div>
@@ -130,7 +130,7 @@ get_header();
 				 * Google Cloud billing set up. If that ever changes, swap for
 				 * the official Maps Embed API with a key.
 				 */
-				$map_query = urlencode( '42 Lantern Lane, Townsville QLD 4810' );
+				$map_query = urlencode( str_replace( "\n", ', ', charlies_coffee_get_contact( 'address' ) ) );
 				?>
 				<iframe
 					src="https://maps.google.com/maps?q=<?php echo esc_attr( $map_query ); ?>&output=embed"

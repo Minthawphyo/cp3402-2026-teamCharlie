@@ -9,11 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CHARLIES_COFFEE_VERSION', '1.4.0' );
+define( 'CHARLIES_COFFEE_VERSION', '1.5.0' );
 
 require get_template_directory() . '/inc/menu-cpt.php';
 require get_template_directory() . '/inc/menu-seed.php';
 require get_template_directory() . '/inc/nav-seed.php';
+require get_template_directory() . '/inc/customizer.php';
 
 function charlies_coffee_setup() {
 	add_theme_support( 'title-tag' );

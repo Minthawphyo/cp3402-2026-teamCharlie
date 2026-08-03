@@ -7,11 +7,16 @@
 
 get_header();
 
-$menu_url    = charlies_coffee_page_url( 'menu', '/menu/' );
-$contact_url = charlies_coffee_page_url( 'contact', '/contact/' );
-$categories  = charlies_coffee_get_menu_categories();
-$featured    = charlies_coffee_get_featured_items( 3 );
-$hero        = charlies_coffee_get_hero_content();
+$menu_url     = charlies_coffee_page_url( 'menu', '/menu/' );
+$contact_url  = charlies_coffee_page_url( 'contact', '/contact/' );
+$categories   = charlies_coffee_get_menu_categories();
+$featured     = charlies_coffee_get_featured_items( 3 );
+$hero         = charlies_coffee_get_hero_content();
+$front_id     = (int) get_option( 'page_on_front' );
+$hero_photo   = $front_id ? get_the_post_thumbnail_url( $front_id, 'large' ) : false;
+if ( ! $hero_photo ) {
+	$hero_photo = 'https://images.pexels.com/photos/5373256/pexels-photo-5373256.jpeg';
+}
 ?>
 
 <section class="grain-bg">
@@ -38,7 +43,7 @@ $hero        = charlies_coffee_get_hero_content();
 		<div class="hero-media">
 			<div class="hero-img-wrap">
 				<img
-					src="https://images.pexels.com/photos/5373256/pexels-photo-5373256.jpeg"
+					src="<?php echo esc_url( $hero_photo ); ?>"
 					alt="Cozy interior of Charlie's Coffee"
 					width="800"
 					height="1000"

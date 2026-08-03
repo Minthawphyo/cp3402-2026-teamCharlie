@@ -9,6 +9,23 @@ get_header();
 
 $menu_url    = charlies_coffee_page_url( 'menu', '/menu/' );
 $contact_url = charlies_coffee_page_url( 'contact', '/contact/' );
+
+$about_page_id = get_queried_object_id();
+
+$about_default_body = 'Charlie&rsquo;s began as a Sunday-only pop-up outside a share house in 2019. '
+	. 'Six years, three roasters and a lot of late-night espresso later, we '
+	. 'settled on the corner of Lantern Lane — and we&rsquo;ve been pouring '
+	. 'neighbourhood cups ever since.';
+
+$about_body = $about_page_id ? trim( wp_strip_all_tags( get_post_field( 'post_content', $about_page_id ) ) ) : '';
+if ( ! $about_body ) {
+	$about_body = $about_default_body;
+}
+
+$about_photo = $about_page_id ? get_the_post_thumbnail_url( $about_page_id, 'large' ) : false;
+if ( ! $about_photo ) {
+	$about_photo = 'https://images.pexels.com/photos/5373256/pexels-photo-5373256.jpeg';
+}
 ?>
 
 <section class="page-hero">
@@ -22,10 +39,7 @@ $contact_url = charlies_coffee_page_url( 'contact', '/contact/' );
 				</h1>
 			</div>
 			<p class="lead">
-				Charlie&rsquo;s began as a Sunday-only pop-up outside a share house in 2019.
-				Six years, three roasters and a lot of late-night espresso later, we
-				settled on the corner of Lantern Lane — and we&rsquo;ve been pouring
-				neighbourhood cups ever since.
+				<?php echo esc_html( $about_body ); ?>
 			</p>
 		</div>
 	</div>
@@ -35,7 +49,7 @@ $contact_url = charlies_coffee_page_url( 'contact', '/contact/' );
 	<div class="container about-spread">
 		<div class="about-photo">
 			<img
-				src="https://images.pexels.com/photos/5373256/pexels-photo-5373256.jpeg"
+				src="<?php echo esc_url( $about_photo ); ?>"
 				alt="Interior of Charlie's Coffee"
 				loading="lazy"
 				width="1200"
