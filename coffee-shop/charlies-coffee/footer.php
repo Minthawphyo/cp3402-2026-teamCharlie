@@ -6,8 +6,7 @@
 			<p class="eyebrow">Charlie&rsquo;s Coffee</p>
 			<h3>Small-batch coffee. <br>Big neighbourhood energy.</h3>
 			<p class="footer-muted">
-				A student-friendly cafe on the corner — good beans, honest pastries,
-				and a table that&rsquo;s always yours.
+				<?php echo wp_kses_post( charlies_coffee_get_contact( 'footer_tagline' ) ); ?>
 			</p>
 			<form class="newsletter" action="#" method="post" onsubmit="return false;">
 				<label class="sr-only" for="footer-email">Email address</label>
@@ -19,9 +18,9 @@
 		<div>
 			<h4>Visit</h4>
 			<ul class="footer-list">
-				<li>42 Lantern Lane<br>Townsville QLD 4810</li>
-				<li>(07) 4772 0000</li>
-				<li>Every day · 9:00a – 8:00p</li>
+				<li><?php echo nl2br( esc_html( charlies_coffee_get_contact( 'address' ) ) ); ?></li>
+				<li><?php echo esc_html( charlies_coffee_get_contact( 'phone' ) ); ?></li>
+				<li><?php echo esc_html( charlies_coffee_get_contact( 'hours' ) ); ?></li>
 			</ul>
 		</div>
 
